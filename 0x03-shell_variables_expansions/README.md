@@ -1,1 +1,1 @@
-describing what each script is doing
+# Shell, init files, variables and expansions
