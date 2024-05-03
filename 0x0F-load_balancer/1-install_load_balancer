@@ -38,8 +38,8 @@ bind *:80
 default_backend onoyima-tech-backend
 backend onoyima-tech-backend
 balance roundrobin
-server 151666-web-01 100.26.167.65 check
-server 151666-web-02 35.175.65.183 check
+server 151666-web-01 54.210.51.8 check
+server 151666-web-02 54.237.95.254 check
 "
 
 # shellcheck disable=SC2154
