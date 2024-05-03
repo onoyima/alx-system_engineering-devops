@@ -38,8 +38,8 @@ bind *:80
 default_backend onoyima-tech-backend
 backend onoyima-tech-backend
 balance roundrobin
-server 151666-web-01 100.26.167.65 check
-server 151666-web-02 35.175.65.183 check
+server 146556-web-01 54.210.51.8:80check
+server 146556-web-02 54.237.95.254:80 check
 "
 
 # shellcheck disable=SC2154
@@ -52,3 +52,4 @@ if [ "$(pgrep -c haproxy)" -le 0 ]; then
     sudo service haproxy start
 else
     sudo service haproxy restart
+fi
