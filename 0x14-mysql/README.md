@@ -3,7 +3,7 @@
 Curriculum
 SE Foundations Average: 124.3%
 0x14. MySQL
-DevOpsSysAdminMySQL
+DevOpsSysAdminMySQL a
 
     Weight: 1
     Project will start May 14, 2024 6:00 AM, must end by May 15, 2024 6:00 AM
