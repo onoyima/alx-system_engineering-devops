@@ -21,8 +21,8 @@ def top_ten(subreddit):
     }
 
     # Send a GET request to the subreddit's hot posts page
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
-
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
     # Check if the response status code indicates a not-found error (404)
     if response.status_code != 200:
         print("None")
@@ -42,6 +42,7 @@ def top_ten(subreddit):
     # Print the titles of the top 10 hottest posts
     for child in results.get("children", []):
         print(child.get("data", {}).get("title"))
+
 
 if __name__ == '__main__':
     import sys

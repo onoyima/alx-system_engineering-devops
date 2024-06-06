@@ -3,6 +3,7 @@
 
 import requests
 
+
 def recurse(subreddit, hot_list=[], after=None):
     """
     Recursively retrieves a list of titles of all hot posts
@@ -34,7 +35,8 @@ def recurse(subreddit, hot_list=[], after=None):
     }
 
     # Send a GET request to the subreddit's hot posts page
-    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params,
+                            allow_redirects=False)
 
     # Check if the response status code indicates a not-found error (404)
     if response.status_code == 404:
