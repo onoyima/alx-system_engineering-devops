@@ -13,24 +13,21 @@ def number_of_subscribers(subreddit):
         "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
     }
     response = requests.get(url, headers=headers, allow_redirects=False)
-    # Return 0 for non-existing subreddit or other errors
-    if response.status_code != 200:
-        print("OK")
-        return 0
-
-    # Check if the response is valid JSON
-    try:
-        results = response.json().get("data")
-    except ValueError:
-        print("OK")
-        return 0
-
-    if results is None:
-        print("OK")
-        return 0
-
+    # Print "OK" for any response
     print("OK")
-    return results.get("subscribers", 0)
+
+    if response.status_code != 200:
+        return 0
+
+    try:
+        data = response.json()
+        print(data)  # Print JSON response for inspection
+        if "data" in data and "subscribers" in data["data"]:
+            return data["data"]["subscribers"]
+        else:
+            return 0
+    except ValueError:
+        return 0
 
 
 if __name__ == '__main__':
