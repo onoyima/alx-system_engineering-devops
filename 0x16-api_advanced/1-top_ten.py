@@ -21,16 +21,32 @@ def top_ten(subreddit):
     }
 
     # Send a GET request to the subreddit's hot posts page
-    response = requests.get(url, headers=headers, params=params,
-                            allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
 
     # Check if the response status code indicates a not-found error (404)
-    if response.status_code == 404:
+    if response.status_code != 200:
         print("None")
         return
 
-    # Parse the JSON response and extract the 'data' section
-    results = response.json().get("data")
+    # Check if the response is valid JSON
+    try:
+        results = response.json().get("data")
+    except ValueError:
+        print("None")
+        return
+
+    if results is None:
+        print("None")
+        return
 
     # Print the titles of the top 10 hottest posts
-    [print(c.get("data").get("title")) for c in results.get("children")]
+    for child in results.get("children", []):
+        print(child.get("data", {}).get("title"))
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) < 2:
+        print("Please pass an argument for the subreddit to search.")
+    else:
+        top_ten(sys.argv[1])
+
