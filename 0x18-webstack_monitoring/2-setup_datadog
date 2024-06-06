@@ -1,1 +1,1 @@
-DD_API_KEY=9c5fbbb78eea47b533a4c6d3a0e03e85 DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
+https://app.datadoghq.com/dashboard/x7u-pcd-cuj?fromUser=false&refresh_mode=sliding&from_ts=1717685726712&to_ts=1717689326712&live=true
